@@ -31,4 +31,4 @@ group :development, :test do
   end
 end
 
-gem 'ethon', "0.10.1", :git => 'git@github.com:mkhodorev/ethon.git', :branch => 'proxy_headers'
+gem 'ethon', :git => 'git@github.com:mkhodorev/ethon.git', :branch => 'proxy_headers'
