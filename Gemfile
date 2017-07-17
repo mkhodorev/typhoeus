@@ -30,3 +30,5 @@ group :development, :test do
     gem 'rb-fsevent', '~> 0.9.1'
   end
 end
+
+gem 'ethon', "0.10.1", :git => 'git@github.com:mkhodorev/ethon.git', :branch => 'proxy_headers'

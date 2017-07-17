@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Typhoeus::Request do
   let(:base_url) { "localhost:3001" }
-  let(:options) { {:verbose => true, :headers => { 'User-Agent' => "Fubar", 'Expect' => "" }, :maxredirs => 50} }
+  let(:options) { {:verbose => true, :headers => { 'User-Agent' => "Fubar", 'Expect' => "" }, :proxy_headers => {'X-Proxy-Timeout' => "100"}, :maxredirs => 50} }
   let(:request) { Typhoeus::Request.new(base_url, options) }
 
   describe ".url" do
@@ -167,7 +167,7 @@ describe Typhoeus::Request do
 
         context "when different order" do
           let(:other_options) {
-            {:headers => { 'User-Agent' => "Fubar", 'Expect' => ""}, :verbose => true }
+            {:headers => { 'User-Agent' => "Fubar", 'Expect' => ""}, :verbose => true, :proxy_headers => {'X-Proxy-Timeout' => "100"} }
           }
           let(:other) { Typhoeus::Request.new(base_url, other_options)}
 
@@ -183,7 +183,7 @@ describe Typhoeus::Request do
     context "when request.eql?(other)" do
       context "when different order" do
         let(:other_options) {
-          {:headers => { 'User-Agent' => "Fubar", 'Expect' => "" }, :verbose => true }
+          {:headers => { 'User-Agent' => "Fubar", 'Expect' => "" }, :verbose => true, :proxy_headers => {'X-Proxy-Timeout' => "100"} }
         }
         let(:other) { Typhoeus::Request.new(base_url, other_options)}
 

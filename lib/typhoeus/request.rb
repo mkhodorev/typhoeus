@@ -216,6 +216,7 @@ module Typhoeus
       options[:verbose] = Typhoeus::Config.verbose if options[:verbose].nil? && !Typhoeus::Config.verbose.nil?
       options[:maxredirs] ||= 50
       options[:proxy] = Typhoeus::Config.proxy unless options.has_key?(:proxy) || Typhoeus::Config.proxy.nil?
+      options[:proxy_headers] = options[:proxy_headers] || {}
     end
   end
 end
